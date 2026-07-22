@@ -1,12 +1,17 @@
 import zoneinfo
 import datetime
 
+timezones = sorted(zoneinfo.available_timezones())
+
+for timezone in timezones:
+    print(timezone)
+
 timezone = "Asia/Jakarta"
 
 if timezone in zoneinfo.available_timezones():
-    print("Timezone tersedia")
+    print(f"\n{timezone} tersedia")
 else:
-    print("Timezone tidak tersedia")
+    print(f"\n{timezone} tidak tersedia")
 
-print(datetime.datetime.now().astimezone().tzinfo)
-    
+# Menampilkan timezone yang sedang digunakan sistem
+print("Timezone sistem:", datetime.datetime.now().astimezone().tzinfo)
